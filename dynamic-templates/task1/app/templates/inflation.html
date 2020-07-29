@@ -1,4 +1,4 @@
-<!DOCTYPE html>{% load static %}
+<!DOCTYPE html>{% load app_filters %}
 <html>
   <head>
     <meta charset="UTF-8">
@@ -17,8 +17,32 @@
       <div class="row">
         <h1 class="col s12">Инфляция в России</h1>
         <div class="col s12 m8">
-        
-        <!-- Ваша логика -->
+
+           <table>
+              <thead>
+                <tr>
+                    {% for head_item in head %}
+                        <th>{{ head_item }}</th>
+                    {% endfor %}
+                </tr>
+              </thead>
+
+              <tbody>
+                    {% for body_item in body %}
+                        <tr>
+                            {% for item in body_item %}
+                                {% if forloop.first %}
+                                    <td>{{ item }}</td>
+                                {% elif forloop.last %}
+                                    <td style="background-color: #808080">{{ item }}</td>
+                                {% else %}
+                                    <td style="background-color: {% cell_bg item %}">{{ item }}</td>
+                                {% endif %}
+                            {% endfor %}
+                        </tr>
+                    {% endfor %}
+              </tbody>
+            </table>
 
         </div>
       </div>
