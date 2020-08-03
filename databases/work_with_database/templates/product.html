@@ -7,8 +7,12 @@
         <div class="header">
             <h1>Телефон</h1>
         </div>
-        <div class="content">
-
+        <div class="content" style="justify-content: initial;">
+            <div class="phone-card">
+                <div class="phone-card__title">{{ phone.name }}</div>
+                <div class="phone-card__price">стоимость: {{ phone.price }}р.</div>
+                <img class="phone-card__img" src={{ phone.image }}>
+            </div>
         </div>
     </div>
 {% endblock %}
